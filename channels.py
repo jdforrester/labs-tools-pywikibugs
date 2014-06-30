@@ -17,7 +17,11 @@ channels = {
         lambda x: x.get("X-Bugzilla-Product", None) in ["VisualEditor", "OOjs", "OOjs UI"] or \
                   (
                       (x.get("X-Bugzilla-Product", None) == "MediaWiki extensions") and \
-                      (x.get("X-Bugzilla-Component", None) in ["TemplateData"])
+                      (x.get("X-Bugzilla-Component", None) in ["TemplateData", "Cite", "WikiEditor"])
+                  ) or \
+                  (
+                      (x.get("X-Bugzilla-Product", None) == "MediaWiki") and \
+                      (x.get("X-Bugzilla-Component", None) == "Page editing" )
                   ),
     "#mediawiki-parsoid":
         lambda x: x.get("X-Bugzilla-Product", None) in ["Parsoid"],
